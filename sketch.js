@@ -3,15 +3,15 @@ var catImg, catImg2, catImg3, mouseImg, mouseImg2, mouseImg3, bgImg;
 
 function preload() {
     //load the images here
-    catImg = loadAnimation("images/cat2.png","images/cat3.png");
-    catImg2 = loadImage("images/cat1.png");
-    catImg3 = loadImage("images/cat4.png");
+    catImg = loadAnimation("cat2.png","cat3.png");
+    catImg2 = loadImage("cat1.png");
+    catImg3 = loadImage("cat4.png");
 
-    mouseImg = loadAnimation("images/mouse2.png","images/mouse3.png");
-    mouseImg2 = loadImage("images/mouse1.png");
-    mouseImg3 = loadImage("images/mouse4.png");
+    mouseImg = loadAnimation("mouse2.png","mouse3.png");
+    mouseImg2 = loadImage("mouse1.png");
+    mouseImg3 = loadImage("mouse4.png");
 
-    bgImg = loadImage("images/garden.png");
+    bgImg = loadImage("garden.png");
 }
 
 function setup(){
@@ -20,7 +20,7 @@ function setup(){
     bg = createSprite(300,300);
     bg.addImage(bgImg);
 
-    cat = createSprite(450,500,50,50);
+    cat = createSprite(450,500);
     cat.addImage(catImg2);
     cat.scale = 0.09;
     cat.debug = true;
@@ -34,7 +34,7 @@ function setup(){
 function draw() {
     background(255);
     //Write condition here to evalute if tom and jerry collide
-    if(mouse.x-cat.x<mouse.width/2-cat.width/2){
+    if(cat.x-mouse.x<(cat.width-mouse.width)/2){
         cat.addImage("catStop",catImg3);
         cat.changeImage("catStop");
         cat.velocityX = 0;
